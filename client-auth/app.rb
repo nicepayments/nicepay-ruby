@@ -24,7 +24,7 @@ end
 
 post '/cancel' do
     response = RestClient::Request.new({
-        url: 'https://api.nicepay.co.kr/v1/payments/'+ params[:tid] + '/cancel',
+        url: 'https://sandbox-api.nicepay.co.kr/v1/payments/'+ params[:tid] + '/cancel',
         headers: { content_type: 'application/json', accept: 'application/json'},
         method: :post,
         user: $clientId,
