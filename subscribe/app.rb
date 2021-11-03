@@ -5,8 +5,9 @@ require 'json'
 
 require "openssl"
 
-$secretKey = '시크릿키 입력'
-$clientId = '클라이언트키 입력'
+$clientId = 'S2_af4543a0be4d49a98122e01ec2059a56'
+$secretKey = '9eb85607103646da9f9c02b128f2e5ee'
+
 $key = $secretKey[0.. 31]
 $iv = $secretKey[0.. 15]
 
@@ -25,7 +26,7 @@ post '/regist' do
                  "&cardPw="+ params[:cardPw]
 
     response = RestClient::Request.new({
-        url: 'https://api.nicepay.co.kr/v1/subscribe/regist',
+        url: 'https://sandbox-api.nicepay.co.kr/v1/subscribe/regist',
         headers: { content_type: 'application/json', accept: 'application/json'},
         method: :post,
         user: $clientId,
@@ -54,7 +55,7 @@ end
 
 def billing(bid)
     response = RestClient::Request.new({
-        url: 'https://api.nicepay.co.kr/v1/subscribe/' + bid + '/payments',
+        url: 'https://sandbox-api.nicepay.co.kr/v1/subscribe/' + bid + '/payments',
         headers: { content_type: 'application/json', accept: 'application/json'},
         method: :post,
         user: $clientId,
@@ -82,7 +83,7 @@ end
 
 def expire(bid)
     response = RestClient::Request.new({
-        url: 'https://api.nicepay.co.kr/v1/subscribe/' + bid + '/expire',
+        url: 'https://sandbox-api.nicepay.co.kr/v1/subscribe/' + bid + '/expire',
         headers: { content_type: 'application/json', accept: 'application/json'},
         method: :post,
         user: $clientId,

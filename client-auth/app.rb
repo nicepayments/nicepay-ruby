@@ -3,8 +3,8 @@ require 'rest-client'
 require 'securerandom'
 require 'json'
 
-$clientId = '클라이언트 키'
-$secretKey = '시크릿 키'
+$clientId = 'S1_6eaa0db1afdc41f3becb770878d67d25'
+$secretKey = 'e80d068e400649a6ada66777fa350d40'
 
 get '/' do
     @orderId = SecureRandom.uuid
